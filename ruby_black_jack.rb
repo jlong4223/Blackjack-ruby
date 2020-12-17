@@ -1,10 +1,12 @@
 # The Players =========================================
 # sets up a class blueprint for the players
 class Player 
-    def initialize name, hand, bankroll
+    attr_accessor :name, :hand, :bankroll
+    def initialize name, hand, bankroll, :total
         @name = name
         @hand = []
         @bankroll = bankroll
+        @total = total
     end
 end
 
@@ -20,8 +22,19 @@ p the_house
 
 # empty array to hold cards object
 cards = []
-
-class Card_Objects 
-
-    
+class Card
+    attr_accessor :face, :suit, :value
+    def initialize face, suit, value
+        @face = face
+        @suit = suit 
+        @value = value
+    end
 end
+
+class Deck
+    def initialize
+        @faces = [*(2..10), 'Jack', 'Queen', 'King', 'Ace']
+        @suits = ['clubs', 'spades', 'hearts', 'diamonds']
+        @cards = []
+    end
+end 

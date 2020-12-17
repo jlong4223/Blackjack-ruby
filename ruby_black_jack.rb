@@ -29,6 +29,12 @@ class Card
         @suit = suit 
         @value = value
     end
+
+    def makes_card player
+        new_card = Card.new face, suit, value
+        player.hand << new_card
+        player.total = player.total + new_card.value
+    end 
 end
 
 class Deck
@@ -55,6 +61,7 @@ class Deck
         end
         # shuffling cards below
     @cards.shuffle!
+    end 
 end 
 
 

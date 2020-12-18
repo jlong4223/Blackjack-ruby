@@ -89,12 +89,32 @@ human.name="#{name}"
 # p human
 
 loop do
-    puts "(Y)es lets play, or (N)o not right now"
+    puts "(D)eal the cards, or (N)o not right now"
+    # gets the user input, removes space, & sets it to lowercase
     lets_play = gets.chomp.downcase
     if lets_play == "n"
         puts "Bye #{name}, you didn't seem skilled enough anyway..."
         break
     else 
         puts "Lets play a game"
+        # clearing all the cards and setting the score/value to 0 each
+        human.hand.clear
+        human.total = 0 #=> do an or statment here to let them choose?
+        the_house.hand.clear
+        the_house.total = 0
+
+        puts "Here are your cards:"
+        # creating a new empty deck based off of the Deck class
+        deck = Deck.new
+        # deal 2 cards to the human
+        deck.deal_cards(2, human)
+        puts "The #{human.hand[0].face} of #{human.hand[0].suit}"
+        puts "The #{human.hand[1].face} of #{human.hand[1].suit}"
+        
+        # deal 2 cards to the house
+        deck.deal_cards(2, the_house)
+        puts "\n\nThe house would graciously like to show you one card:"
+        puts "The #{the_house.hand[0].face} of #{the_house.hand[0].suit}"
+
     end
 end 

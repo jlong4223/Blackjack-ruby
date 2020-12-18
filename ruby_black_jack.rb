@@ -15,7 +15,7 @@ end
 
 # creates the two player classes based on the Class blueprint above
 human = Player.new "Human", [], 100, 0
-the_house = Player.new "Computer", [], 10000, 0
+the_house = Player.new "Bot 3000", [], 10000, 0
 
 # p human
 # p the_house
@@ -137,5 +137,7 @@ loop do
             end
         end
             puts "#{human.name.blue}, your hand has a total value of #{human.total}"
-			puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
+            puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
+            
+        # TODO figure out win/lose  
 end 

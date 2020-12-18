@@ -1,7 +1,7 @@
 # The Players =========================================
 # sets up a class blueprint for the players
 class Player 
-    attr_accessor :name, :hand, :bankroll
+    attr_accessor :name, :hand, :bankroll, :total
     def initialize name, hand, bankroll, total
         @name = name
         @hand = []
@@ -10,7 +10,7 @@ class Player
     end
 end
 
-# creates the two player classes 
+# creates the two player classes based on the Class blueprint above
 human = Player.new "Human", [], 100, 0
 the_house = Player.new "Computer", [], 10000, 0
 
@@ -33,6 +33,7 @@ class Card
     def makes_card player
         new_card = Card.new face, suit, value
         player.hand << new_card
+        # updating the total number for the player to see
         player.total = player.total + new_card.value
     end 
 end
@@ -62,6 +63,20 @@ class Deck
         # shuffling cards below
     @cards.shuffle!
     end 
+
+    def deal_cards(num, player)
+        # taking the card out of the deck and putting it in the players hand with .shift
+        num.times {@cards.shift.makes_card(player)}
+    end 
 end 
 
 
+# Time to get started with prompts and gameplay ==============
+
+def prompt_greeting(namehere)
+    print(namehere)
+    gets
+end 
+
+name = prompt_greeting("Hello player, what is your name? ").chomp
+p "Hi there #{name}, ready for some black jack?"

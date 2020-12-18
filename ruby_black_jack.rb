@@ -80,3 +80,8 @@ end
 
 name = prompt_greeting("Hello player, what is your name? ").chomp
 p "Hi there #{name}, ready for some black jack?"
+
+# setting the player to be the name given with the prompt
+human.name="#{name}"
+# uncomment to check if name was assigned to the player class
+p human

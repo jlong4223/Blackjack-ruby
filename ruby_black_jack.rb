@@ -1,3 +1,6 @@
+# gem installs colorize and requires
+require 'colorize'
+
 # The Players =========================================
 # sets up a class blueprint for the players
 class Player 
@@ -81,7 +84,7 @@ end
 
 # using .chomp to get rid of default space(\n) after the inputed name
 name = prompt_greeting("\nHello player, what is your name? ").chomp
-puts "\n\nHi there #{name}, ready for some black jack?"
+puts "\n\nHi there #{name.blue}, ready for some black jack?"
 
 # setting the player to be the name given with the prompt
 human.name="#{name}"
@@ -93,7 +96,7 @@ loop do
     # gets the user input, removes space, & sets it to lowercase
     lets_play = gets.chomp.downcase
     if lets_play == "n"
-        puts "Bye #{name}, you didn't seem skilled enough anyway..."
+        puts "Bye #{name.red}, you didn't seem skilled enough anyway..."
         break
     else 
         puts "Lets play a game"

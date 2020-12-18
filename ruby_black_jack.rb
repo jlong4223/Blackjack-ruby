@@ -122,11 +122,20 @@ loop do
         until human.total >= 21 do
             puts "Would you like to (s)tay or (h)it?"
             hit = gets.chomp.downcase
-            if hit == 'h'
-                deck.deal_cards(1, human)
-                puts "#{human.name.blue}, your new card is:"
-                puts "The #{human.hand[0].face} of #{human.hand[0].suit}\n\n"
+                if hit == 'h'
+                    deck.deal_cards(1, human)
+                    puts "#{human.name.blue}, your new card is:"
+                    puts "The #{human.hand[0].face} of #{human.hand[0].suit}\n\n"
+
+                    puts "The total value in your hand is:"
+				    puts "#{human.total}"
+				    puts "The dealer has one card showing:"
+                    puts "The #{the_house.hand[0].face} of #{the_house.hand[0].suit}"
+                else
+                    break
+                end
             end
-         end
-    end
+        end
+            puts "#{human.name.blue}, your hand has a total value of #{human.total}"
+			puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
 end 

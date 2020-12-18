@@ -14,8 +14,8 @@ end
 human = Player.new "Human", [], 100, 0
 the_house = Player.new "Computer", [], 10000, 0
 
-p human
-p the_house
+# p human
+# p the_house
 
 
 # The Deck ===========================================
@@ -73,15 +73,28 @@ end
 
 # Time to get started with prompts and gameplay ==============
 
+# getting the name from a prompt
 def prompt_greeting(namehere)
     print(namehere)
     gets
 end 
 
-name = prompt_greeting("Hello player, what is your name? ").chomp
-p "Hi there #{name}, ready for some black jack?"
+# using .chomp to get rid of default space(\n) after the inputed name
+name = prompt_greeting("\nHello player, what is your name? ").chomp
+puts "\n\nHi there #{name}, ready for some black jack?"
 
 # setting the player to be the name given with the prompt
 human.name="#{name}"
-# uncomment to check if name was assigned to the player class
-p human
+    # uncomment next line to check if name was assigned to the player class
+# p human
+
+loop do
+    puts "(Y)es lets play, or (N)o not right now"
+    lets_play = gets.chomp.downcase
+    if lets_play == "n"
+        puts "Bye #{name}, you didn't seem skilled enough anyway..."
+        break
+    else 
+        puts "Lets play a game"
+    end
+end 

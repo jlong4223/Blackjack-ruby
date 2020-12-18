@@ -99,7 +99,7 @@ loop do
         puts "Bye #{name.red}, you didn't seem skilled enough anyway..."
         break
     else 
-        puts "Lets play a game"
+        puts "Shuffling🌪 "
         # clearing all the cards and setting the score/value to 0 each
         human.hand.clear
         human.total = 0 #=> do an or statment here to let them choose?
@@ -116,8 +116,17 @@ loop do
         
         # deal 2 cards to the house
         deck.deal_cards(2, the_house)
-        puts "\n\nThe house would graciously like to show you one card:"
-        puts "The #{the_house.hand[0].face} of #{the_house.hand[0].suit}"
+        puts "\n\nThe #{the_house.name.red} would graciously like to show you one card:"
+        puts "The #{the_house.hand[0].face} of #{the_house.hand[0].suit}\n\n"
 
+        until human.total >= 21 do
+            puts "Would you like to (s)tay or (h)it?"
+            hit = gets.chomp.downcase
+            if hit == 'h'
+                deck.deal_cards(1, human)
+                puts "#{human.name.blue}, your new card is:"
+                puts "The #{human.hand[0].face} of #{human.hand[0].suit}\n\n"
+            end
+         end
     end
 end 

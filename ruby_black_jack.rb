@@ -139,5 +139,5 @@ loop do
             puts "#{human.name.blue}, your hand has a total value of #{human.total}"
             puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
             
-        # TODO figure out win/lose  
+        # TODO figure out win/lose  and stop the loop
 end 

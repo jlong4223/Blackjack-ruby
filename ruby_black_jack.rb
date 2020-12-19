@@ -140,4 +140,14 @@ loop do
             puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
             
         # TODO figure out win/lose  and stop the loop
+        if human.total <= 21 && the_house.total <=21
+            if human.total > the_house.total
+                puts "#{human.name.blue}, you win!"
+                # giving 10 to the human by taking 10 away from house
+                human.bankroll += 10
+                the_house.bankroll -= 10
+            elsif human.total < the_house.total
+                puts "The #{the_house.name.red} wins!"
+
+        end 
 end 

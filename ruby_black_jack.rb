@@ -184,3 +184,6 @@ loop do
         end
         end 
  
+
+        # TODO let player check bankroll at anytime
+        # TODO let player bet a different number

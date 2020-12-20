@@ -146,32 +146,34 @@ loop do
                 # giving 10 to the human by taking 10 away from house
                 human.bankroll += 10
                 the_house.bankroll -= 10
+
             elsif human.total < the_house.total
                 puts "The #{the_house.name.red} wins!"
                 human.bankroll -= 10
                 the_house.bankroll += 10
+
             else 
                 puts "Its a tie" # TODO are there rules for a tie?
-                # human.bankroll += 0
-                # the_house.bankroll += 0
+                human.bankroll -= 10
+                the_house.bankroll += 10
             end 
 
         elsif human.total > 21 && the_house.total <= 21
             puts "\n\n#{human.name.blue}, you have gone over 21 and lose this round."
             # the house gains as the user/human went over
-            human.total -= 10
-            the_house.total += 10
+            human.bankroll -= 10
+            the_house.bankroll += 10
             
         elsif human.total <= 21 && the_house.total > 21
             puts "#{the_house.name.red} went over 21. #{human.name.blue}, you win this round."
             # human gains as house went over
-            human.total += 10
-            the_house.total -= 10
+            human.bankroll += 10
+            the_house.bankroll -= 10
 
         else human.total > 21 && the_house.total > 21
             puts "#{human.name.blue}, you and #{the_house.name.red} have tied"
-            # human.total += 0
-            # the_house += 0
+            # human.bankroll += 0
+            # the_house.bankroll += 0
         end 
         # showing the total of each player
         puts "\n\n#{human.name.blue}, you now have #{human.bankroll}."
@@ -189,4 +191,3 @@ end
 
         # TODO let player check bankroll at anytime
         # TODO let player bet a different number
-        # TODO find out why the total doesnt go down more than once when player loses (wont go below 90 and wont go above 120)

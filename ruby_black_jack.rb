@@ -148,6 +148,30 @@ loop do
                 the_house.bankroll -= 10
             elsif human.total < the_house.total
                 puts "The #{the_house.name.red} wins!"
+                human.bankroll -= 10
+                the_house.bankroll += 10
+            else 
+                puts "Its a tie" # TODO are there rules for a tie?
+                human.bankroll += 0
+                the_house.bankroll += 0
+            end 
 
+        elsif human.total > 21 && the_house.total <= 21
+            puts "#{human.name.blue}, you have gone over 21 and lose this round"
+            # the house gains as the user/human went over
+            human.total -= 10
+            the_house.total += 10
+            
+        elsif human.total <= 21 && the_house.total > 21
+            puts "#{the_house.name.red} went over 21. #{human.name.blue}, you win this round."
+            # human gains as house went over
+            human.total += 10
+            the_house.total -= 10
+
+        else human.total > 21 && the_house.total > 21
+            puts "#{human.name.blue}, you and #{the_house.name.red} have tied"
+            human.total += 0
+            the_house += 0
         end 
-end 
+    end 
+ 

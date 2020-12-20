@@ -99,14 +99,14 @@ loop do
         puts "Bye #{name.red}, you didn't seem skilled enough anyway..."
         break
     else 
-        puts "Shuffling🌪 "
+        puts "\nShuffling🌪 "
         # clearing all the cards and setting the score/value to 0 each
         human.hand.clear
         human.total = 0 #=> do an or statment here to let them choose?
         the_house.hand.clear
         the_house.total = 0
 
-        puts "Here are your cards:"
+        puts "#{human.name.blue}, here are your cards:"
         # creating a new empty deck based off of the Deck class
         deck = Deck.new
         # deal 2 cards to the human
@@ -136,8 +136,8 @@ loop do
                 end
             end
         end
-            puts "#{human.name.blue}, your hand has a total value of #{human.total}"
-            puts "The #{the_house.name.red} has a hand value of #{the_house.total}"
+            puts "\n\n#{human.name.blue}, your hand has a total value of #{human.total}"
+            puts "The #{the_house.name.red} has a hand value of #{the_house.total}\n"
             
         # TODO figure out win/lose  and stop the loop
         if human.total <= 21 && the_house.total <=21
@@ -157,7 +157,7 @@ loop do
             end 
 
         elsif human.total > 21 && the_house.total <= 21
-            puts "#{human.name.blue}, you have gone over 21 and lose this round"
+            puts "\n\n#{human.name.blue}, you have gone over 21 and lose this round."
             # the house gains as the user/human went over
             human.total -= 10
             the_house.total += 10
@@ -173,5 +173,14 @@ loop do
             human.total += 0
             the_house += 0
         end 
-    end 
+        # showing the total of each player
+        puts "\n\n#{human.name.blue}, you now have #{human.bankroll}."
+        puts "#{the_house.name.red}, now has #{the_house.bankroll}."
+        if human.bankroll <= 0
+            puts "Wow, #{human.name.blue}, you should stop gambling..."
+            break
+        else
+            puts "#{human.name.blue}, want to play again?\n"
+        end
+        end 
  

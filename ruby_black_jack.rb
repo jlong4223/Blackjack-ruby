@@ -135,7 +135,7 @@ loop do
                     break
                 end
             end
-        end
+
             puts "\n\n#{human.name.blue}, your hand has a total value of #{human.total}"
             puts "The #{the_house.name.red} has a hand value of #{the_house.total}\n"
             
@@ -152,8 +152,8 @@ loop do
                 the_house.bankroll += 10
             else 
                 puts "Its a tie" # TODO are there rules for a tie?
-                human.bankroll += 0
-                the_house.bankroll += 0
+                # human.bankroll += 0
+                # the_house.bankroll += 0
             end 
 
         elsif human.total > 21 && the_house.total <= 21
@@ -170,8 +170,8 @@ loop do
 
         else human.total > 21 && the_house.total > 21
             puts "#{human.name.blue}, you and #{the_house.name.red} have tied"
-            human.total += 0
-            the_house += 0
+            # human.total += 0
+            # the_house += 0
         end 
         # showing the total of each player
         puts "\n\n#{human.name.blue}, you now have #{human.bankroll}."
@@ -182,8 +182,11 @@ loop do
         else
             puts "#{human.name.blue}, want to play again?\n"
         end
-        end 
+    end 
+end
+
  
 
         # TODO let player check bankroll at anytime
         # TODO let player bet a different number
+        # TODO find out why the total doesnt go down more than once when player loses (wont go below 90 and wont go above 120)
